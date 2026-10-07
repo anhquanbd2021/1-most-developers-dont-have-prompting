@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Routing guide — the five questions, the five surfaces, and the failure each misroute produces.">
+  <title>Instruction Router — routing guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600;700&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+<!-- pb-shell --><link rel="stylesheet" href="./pb-shell.css"><!-- pb-shell --><!-- pb-back --><link rel="stylesheet" href="./pb-back.css"><!-- pb-back --></head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<main id="main" class="guide" tabindex="-1">
+  <nav aria-label="Primary"><a href="/">Lab</a><a aria-current="page" href="/guide.html">Guide</a><a href="https://github.com/anhquanbd2021/1-most-developers-dont-have-prompting">Source</a></nav>
+  <header class="hero">
+    <div><p class="eyebrow">Guide</p><h1>Route it before you write it</h1><p class="lede">The five surfaces differ on two axes — <strong>when the instruction loads</strong> and <strong>whether anything enforces it</strong>. The routing decision matches an instruction's properties to both.</p></div>
+  </header>
+
+  <section class="guide-section">
+    <h2>The precedence order</h2>
+    <p>Ask the questions enforcement-first. Asking "always true?" first misroutes enforceable rules into <code>CLAUDE.md</code> — the classic <em>enforcement gap</em>.</p>
+    <ol>
+      <li><strong>Must it happen every time?</strong> → <code>hook</code>. Only hooks run code; everything else is text the model reads and mostly follows.</li>
+      <li><strong>Does it need its own context?</strong> → <code>subagent</code>. Delegation is structural: different context, different tools.</li>
+      <li><strong>Is it a repeatable procedure?</strong> → <code>skill</code>. Loaded on demand, absent the rest of the time.</li>
+      <li><strong>Does it apply only to some files?</strong> → <code>scoped rule</code> with a path glob. Conditional context.</li>
+      <li><strong>Is it true of every task?</strong> → <code>CLAUDE.md</code>. Always-on project facts — and nothing else.</li>
+      <li><strong>None of the above?</strong> → the prompt. Not everything belongs in the control plane.</li>
+    </ol>
+  </section>
+
+  <section class="guide-section">
+    <h2>The failure catalog</h2>
+    <ul>
+      <li><strong>enforcement-gap</strong> — must-enforce rule on an advisory surface: read every turn, guaranteed never.</li>
+      <li><strong>over-enforcement</strong> — advisory text on a hook: a deterministic slot spent on a rule that needs judgment, or context tax rewritten as code.</li>
+      <li><strong>context-tax</strong> — scoped or procedural text in <code>CLAUDE.md</code>: paid every turn, relevant occasionally.</li>
+      <li><strong>coverage-gap</strong> — always-true fact in a scoped rule or skill: correct where it applies, absent everywhere else.</li>
+      <li><strong>context-pollution</strong> — delegated work inlined into the main context: the writer grading its own homework.</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2>Honest limits</h2>
+    <ul>
+      <li>Compliance on advisory surfaces is <strong>simulated</strong> at 92% — a documented constant, not a measurement. The lab reproduces the shape of each failure, not your model's exact rates.</li>
+      <li>Hooks enforce only <strong>checkable</strong> rules at defined events; real hook APIs differ per tool (PreToolUse/PostToolUse matchers, exit codes).</li>
+      <li>Real surfaces have more knobs: skill triggers, agent tool sets, settings precedence. The lab teaches the routing decision, not any tool's exact file layout.</li>
+      <li>Scoped-rule and skill loads assume the match/invocation lands exactly when relevant — real globs and triggers have false positives and misses.</li>
+    </ul>
+  </section>
+
+  <p class="end-links"><a href="/">Back to the lab</a></p>
+</main>
+<!-- pb-shell --><a class="pb-shell" href="https://github.com/anhquanbd2021/1-most-developers-dont-have-prompting" title="1-most-developers-dont-have-prompting — an Article Playbook demo (view source)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="9" height="9" rx="2" fill="#2dd4bf"/><rect x="13" y="2" width="9" height="9" rx="2" fill="#2dd4bf" opacity=".45"/><rect x="2" y="13" width="9" height="9" rx="2" fill="#2dd4bf" opacity=".45"/><rect x="13" y="13" width="9" height="9" rx="4.5" fill="#2dd4bf"/></svg><b>1-most-developers-dont-have-prompting</b><i>DEMO</i></a><!-- pb-shell --><!-- pb-back --><a class="pb-back" id="pb-back" href="https://github.com/anhquanbd2021/1-most-developers-dont-have-prompting" title="Back to the article — 1-most-developers-dont-have-prompting">← Article <i>PLAYBOOK</i></a><script>(function(){var a=document.getElementById('pb-back');if(!a)return;var h=location.hostname;if(/^(localhost|127\.0\.0\.1|192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[01])\.)/.test(h)){a.href='//'+h+':'+(/^(localhost|127\.0\.0\.1)$/.test(h)?'1234':'30082')+'/microsites/article.html?slug=1-most-developers-dont-have-prompting';}})();</script><!-- pb-back --></body>
+</html>

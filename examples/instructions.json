@@ -1,0 +1,105 @@
+{
+  "instructions": [
+    {
+      "id": "no-env-commit",
+      "text": "Never write, commit, or echo .env* or files matching *secret*.",
+      "properties": { "mustEnforce": true, "needsIsolation": false, "repeatable": false, "scoped": false, "alwaysTrue": true },
+      "scope": null,
+      "tokenCost": 18,
+      "relevance": 1.0,
+      "expected": "hook"
+    },
+    {
+      "id": "lint-after-edit",
+      "text": "After every file edit, run the linter and surface failures before continuing.",
+      "properties": { "mustEnforce": true, "needsIsolation": false, "repeatable": false, "scoped": false, "alwaysTrue": false },
+      "scope": null,
+      "tokenCost": 20,
+      "relevance": 1.0,
+      "expected": "hook"
+    },
+    {
+      "id": "security-review",
+      "text": "Review a diff for secrets, injection, and auth bypass; cite file:line; read-only — never edit.",
+      "properties": { "mustEnforce": false, "needsIsolation": true, "repeatable": false, "scoped": false, "alwaysTrue": false },
+      "scope": null,
+      "tokenCost": 140,
+      "relevance": 0.15,
+      "expected": "subagent"
+    },
+    {
+      "id": "perf-audit",
+      "text": "Audit a page's bundle and render path; report the top-3 wins with measurements.",
+      "properties": { "mustEnforce": false, "needsIsolation": true, "repeatable": false, "scoped": false, "alwaysTrue": false },
+      "scope": null,
+      "tokenCost": 110,
+      "relevance": 0.1,
+      "expected": "subagent"
+    },
+    {
+      "id": "release-checklist",
+      "text": "Release procedure: bump version, update changelog, tag, build, verify /health on the deploy.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": true, "scoped": false, "alwaysTrue": false },
+      "scope": null,
+      "tokenCost": 180,
+      "relevance": 0.05,
+      "expected": "skill"
+    },
+    {
+      "id": "migration-writer",
+      "text": "Writing a DB migration: expand-migrate-contract, one concern per file.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": true, "scoped": false, "alwaysTrue": false },
+      "scope": null,
+      "tokenCost": 90,
+      "relevance": 0.08,
+      "expected": "skill"
+    },
+    {
+      "id": "api-handlers",
+      "text": "Handlers in src/api/** are pure functions; each gets a node:test file beside it.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": false, "scoped": true, "alwaysTrue": false },
+      "scope": "src/api/**",
+      "scopeRate": 0.3,
+      "tokenCost": 60,
+      "relevance": 0.3,
+      "expected": "scoped-rule"
+    },
+    {
+      "id": "css-tokens",
+      "text": "CSS: no global selectors; design tokens come from styles.css :root only.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": false, "scoped": true, "alwaysTrue": false },
+      "scope": "**/*.css",
+      "scopeRate": 0.2,
+      "tokenCost": 40,
+      "relevance": 0.2,
+      "expected": "scoped-rule"
+    },
+    {
+      "id": "stack-facts",
+      "text": "Stack: Node 20, ES modules, zero runtime deps. Tests run with npm test.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": false, "scoped": false, "alwaysTrue": true },
+      "scope": null,
+      "tokenCost": 35,
+      "relevance": 1.0,
+      "expected": "claude-md"
+    },
+    {
+      "id": "small-diffs",
+      "text": "Prefer small diffs over rewrites; never refactor beyond the ask.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": false, "scoped": false, "alwaysTrue": true },
+      "scope": null,
+      "tokenCost": 25,
+      "relevance": 1.0,
+      "expected": "claude-md"
+    },
+    {
+      "id": "todays-task",
+      "text": "Today we are migrating the settings page to the new API.",
+      "properties": { "mustEnforce": false, "needsIsolation": false, "repeatable": false, "scoped": false, "alwaysTrue": false },
+      "scope": null,
+      "tokenCost": 30,
+      "relevance": 1.0,
+      "expected": "prompt"
+    }
+  ]
+}

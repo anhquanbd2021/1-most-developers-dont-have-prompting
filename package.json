@@ -1,0 +1,16 @@
+{
+  "name": "instruction-router-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Instruction Router — route agent instructions to CLAUDE.md, scoped rules, skills, subagents, or hooks; audit a misrouted .claude/ and simulate the cost.",
+  "scripts": {
+    "start": "node app/server.js",
+    "report": "node scripts/report.mjs",
+    "test": "node --test \"test/*.test.mjs\"",
+    "check": "npm test && npm run report"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

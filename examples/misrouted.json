@@ -1,0 +1,11 @@
+{
+  "comment": "A deliberately misrouted .claude/ layout — every placement below is wrong. The audit should name each failure.",
+  "placements": [
+    { "id": "no-env-commit", "placed": "claude-md", "expectedFailure": "enforcement-gap" },
+    { "id": "small-diffs", "placed": "hook", "expectedFailure": "over-enforcement" },
+    { "id": "release-checklist", "placed": "claude-md", "expectedFailure": "context-tax" },
+    { "id": "api-handlers", "placed": "claude-md", "expectedFailure": "context-tax" },
+    { "id": "security-review", "placed": "claude-md", "expectedFailure": "context-pollution" },
+    { "id": "stack-facts", "placed": "scoped-rule", "expectedFailure": "coverage-gap" }
+  ]
+}
